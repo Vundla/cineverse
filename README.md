@@ -1,5 +1,7 @@
 # Cineverse
 
+Project Link https://cineverse-55kp.onrender.com/
+
 Short: Movie discovery & review app (React + Vite frontend, Node/Express + Sequelize backend).
 
 ## Project structure
@@ -90,4 +92,5 @@ Ensure server serves `client/dist` and reads `process.env.PORT`.
 ## Notes
 - Do not commit .env or secrets. Add/verify `.gitignore`.
 - Add Render environment variables in the service dashboard (DB credentials, API keys, JWT secret).
+
 - If you want a Render YAML or a README badge, tell me and
