@@ -94,3 +94,4 @@ Ensure server serves `client/dist` and reads `process.env.PORT`.
 - Add Render environment variables in the service dashboard (DB credentials, API keys, JWT secret).
 
 - If you want a Render YAML or a README badge, tell me and
+
