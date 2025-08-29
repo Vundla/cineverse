@@ -1,6 +1,10 @@
 # Cineverse
 
-Project Link https://cineverse-2.onrender.com
+Project Link 
+
+$$ Frontend (Client) Link: https://cineverse-client.onrender.com
+
+$$ Backend (Server)  Link: https://cineverse-p4b1.onrender.com
 
 Short: Movie discovery & review app (React + Vite frontend, Node/Express + Sequelize backend).
 
@@ -94,5 +98,6 @@ Ensure server serves `client/dist` and reads `process.env.PORT`.
 - Add Render environment variables in the service dashboard (DB credentials, API keys, JWT secret).
 
 - If you want a Render YAML or a README badge, tell me and
+
 
 
