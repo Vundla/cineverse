@@ -1,10 +1,10 @@
 :root {
-  --brand-dark: #ec540e;
-  --brand-card: #103288;
-  --brand-purple: #0f6642;
-  --brand-purple-hover: #1b1916;
-  --text-light: #b31010;
-  --text-muted: #b8b894;
+  --brand-dark: #302b3548;
+  --brand-card: #dacdd1;
+  --brand-purple: #d61385d5;
+  --brand-purple-hover: #2d2d8d3d;
+  --text-light: #32879e;
+  --text-muted: #181a1d;
 }
 
 body {
@@ -51,7 +51,7 @@ body {
 
 .search-input:focus {
   border-color: var(--brand-purple);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(53, 11, 151, 0.5);
 }
 
 .genre-filter {
@@ -75,7 +75,7 @@ body {
 
 .genre-button:hover {
   background-color: var(--brand-purple-hover);
-  color: white;
+  color: rgb(88, 77, 77);
 }
 
 .genre-button.active {
@@ -102,7 +102,7 @@ body {
 .movie-card {
   background-color: var(--brand-card);
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(112, 31, 31, 0.1);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -111,13 +111,13 @@ body {
 
 .movie-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(133, 21, 21, 0.2);
 }
 
 .movie-card .play-icon-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2), transparent);
+    background: linear-gradient(to top, rgba(114, 79, 79, 0.8), rgba(0,0,0,0.2), transparent);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,7 +170,7 @@ body {
 }
 
 .error-message {
-  color: #f87171; /* Red-400 */
+  color: #4e1919; /* Red-400 */
   font-size: 1.25rem;
   padding: 4rem 0;
 }
