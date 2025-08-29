@@ -1,10 +1,7 @@
-// FILE: server/src/server.js (FIXED FOR DEPLOYMENT)
-// =======================================================
+// ...existing code...
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import sequelize from './config/database.js';
 
 // Import routes
@@ -16,8 +13,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+// --- Enhanced CORS Configuration for Production ---
+// Use FRONTEND_URL env var in Render (example: https://your-frontend.onrender.com).
+// For quick testing you can set FRONTEND_URL='*' but prefer an exact origin in production.
+const corsOrigin = process.env.FRONTEND_URL || '*';
+const corsOptions = {
+  origin: corsOrigin,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+};
+app.use(cors(corsOptions));
+console.log('CORS allowed origin:', corsOrigin);
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // API Routes
@@ -25,22 +33,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/movies', movieRoutes);
 app.use('/api/reviews', reviewRoutes);
 
-// --- DEPLOYMENT CONFIGURATION ---
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../../client/dist')));
-
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
-});
-
-
 // Start Server and Test DB Connection
-app.listen(PORT, async () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', async () => {
+  console.log(`🚀 Server is running on port ${PORT} (listening on 0.0.0.0)`);
   try {
     await sequelize.authenticate();
     console.log('✅ Database Connection has been established successfully.');
@@ -48,3 +43,4 @@ app.listen(PORT, async () => {
     console.error('❌ Unable to connect to the database:', error);
   }
 });
+// ...existing code...

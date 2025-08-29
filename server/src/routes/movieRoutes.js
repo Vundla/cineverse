@@ -1,13 +1,20 @@
-// FILE: server/src/routes/movieRoutes.js
+// FILE: server/src/routes/movieRoutes.js (Updated)
 // =======================================================
 import express from 'express';
-import { getPopularMovies, searchMovies, getMovieDetails, getRecommendations, addFavorite, getFavorites } from '../controllers/movieController.js';
-import { protect } from '../middleware/authMiddleware.js';
+import { 
+    getPopularMovies, 
+    searchMovies, 
+    getMovieDetails, 
+    getMovieVideos, // <-- Import new controller
+    getMoviesByGenre
+} from '../controllers/movieController.js';
 
 const router = express.Router();
+
 router.get('/popular', getPopularMovies);
 router.get('/search', searchMovies);
+router.get('/genre/:genreId', getMoviesByGenre);
 router.get('/details/:id', getMovieDetails);
-router.get('/recommendations', protect, getRecommendations);
-router.route('/favorites').get(protect, getFavorites).post(protect, addFavorite);
+router.get('/videos/:id', getMovieVideos); // <-- Add new route
+
 export default router;
